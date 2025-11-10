@@ -1,0 +1,633 @@
+/* Global Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    -webkit-tap-highlight-color: transparent;
+    touch-action: manipulation;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    background: linear-gradient(135deg, #a8e0ff 0%, #d4f1ff 100%);
+    min-height: 100vh;
+    overflow-x: hidden;
+    position: relative;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+}
+
+/* Confetti Background */
+.confetti-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 0;
+}
+
+.confetti {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    opacity: 0.8;
+    animation: fall linear infinite;
+}
+
+@keyframes fall {
+    0% {
+        transform: translateY(-100px) rotate(0deg);
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(100vh) rotate(360deg);
+        opacity: 0.5;
+    }
+}
+
+/* Main Container */
+.container {
+    max-width: 680px;
+    margin: 0 auto;
+    padding: 40px 20px 80px;
+    position: relative;
+    z-index: 1;
+}
+
+/* Profile Section */
+.profile-section {
+    text-align: center;
+    margin-bottom: 24px;
+    animation: fadeInDown 0.8s ease-out;
+}
+
+.profile-image-wrapper {
+    margin-bottom: 16px;
+}
+
+.profile-image {
+    width: 96px;
+    height: 96px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid white;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    transition: transform 0.3s ease;
+}
+
+.profile-image:hover {
+    transform: scale(1.05);
+}
+
+.profile-name {
+    font-size: 24px;
+    font-weight: 700;
+    color: #1e3a8a;
+    margin-bottom: 8px;
+}
+
+/* Social Icons */
+.social-icons {
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+    margin-bottom: 32px;
+    animation: fadeIn 1s ease-out 0.2s both;
+}
+
+.social-icon {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: white;
+    color: #333;
+    font-size: 20px;
+    text-decoration: none;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+}
+
+.social-icon:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.social-icon.facebook:hover {
+    background: #1877f2;
+    color: white;
+}
+
+.social-icon.instagram:hover {
+    background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+    color: white;
+}
+
+.social-icon.tiktok:hover {
+    background: #000;
+    color: white;
+}
+
+.social-icon.whatsapp:hover {
+    background: #25d366;
+    color: white;
+}
+
+/* Links Section */
+.links-section {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    animation: fadeInUp 1s ease-out 0.4s both;
+}
+
+.link-button {
+    display: flex;
+    align-items: center;
+    background: white;
+    padding: 16px 20px;
+    border-radius: 12px;
+    text-decoration: none;
+    color: #333;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.link-button::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+    transition: left 0.5s ease;
+}
+
+.link-button:hover::before {
+    left: 100%;
+}
+
+.link-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+}
+
+.link-button:active {
+    transform: translateY(0);
+}
+
+.link-icon {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    margin-right: 16px;
+    flex-shrink: 0;
+}
+
+.pdf-icon {
+    color: #dc2626;
+}
+
+.list-icon {
+    color: #1f2937;
+}
+
+.cdr-icon {
+    color: #059669;
+}
+
+.whatsapp-icon {
+    color: #25d366;
+}
+
+.link-text {
+    flex: 1;
+    font-size: 16px;
+    font-weight: 600;
+    text-align: left;
+}
+
+.link-arrow {
+    color: #9ca3af;
+    font-size: 14px;
+    transition: transform 0.3s ease;
+}
+
+.link-button:hover .link-arrow {
+    transform: translateX(4px);
+}
+
+/* Footer */
+.footer {
+    text-align: center;
+    margin-top: 48px;
+    padding: 20px 0;
+}
+
+.-logo {
+    width: 120px;
+    opacity: 0.6;
+}
+
+/* Modal */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    z-index: 2000;
+    align-items: center;
+    justify-content: center;
+    animation: fadeIn 0.3s ease;
+}
+
+.modal.active {
+    display: flex;
+}
+
+.modal-content {
+    background: white;
+    padding: 32px;
+    border-radius: 16px;
+    max-width: 400px;
+    width: 90%;
+    text-align: center;
+    position: relative;
+    animation: slideUp 0.3s ease;
+}
+
+.close-button {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    font-size: 28px;
+    color: #666;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.close-button:hover {
+    color: #000;
+}
+
+.modal-content h2 {
+    margin-bottom: 24px;
+    color: #1e3a8a;
+    word-wrap: break-word;
+    hyphens: auto;
+}
+
+.modal-content p {
+    color: #666;
+    font-size: 14px;
+}
+
+/* PDF Modal Styles */
+.pdf-list-container {
+    max-height: 400px;
+    overflow-y: auto;
+    margin-top: 20px;
+}
+
+.pdf-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.pdf-list li {
+    margin-bottom: 10px;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 10px;
+}
+
+.pdf-list li:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+    padding-bottom: 0;
+}
+
+.pdf-link {
+    display: block;
+    padding: 12px 15px;
+    background: #f8f9fa;
+    border-radius: 8px;
+    text-decoration: none;
+    color: #333;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    position: relative;
+    padding-left: 40px;
+}
+
+.pdf-link:hover {
+    background: #e9ecef;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.pdf-link::before {
+    content: "\f1c1";
+    font-family: "Font Awesome 6 Free";
+    font-weight: 900;
+    position: absolute;
+    left: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #e74c3c;
+    font-size: 18px;
+}
+
+/* PDF Viewer Modal Styles */
+.pdf-viewer-content {
+    width: 90%;
+    max-width: 900px;
+    height: 80vh;
+    max-height: 800px;
+    display: flex;
+    flex-direction: column;
+}
+
+.pdf-viewer-container {
+    flex: 1;
+    width: 100%;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    overflow: hidden;
+    background: #fff;
+}
+
+.pdf-viewer {
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideUp {
+    from {
+        transform: translateY(50px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .container {
+        padding: 20px 16px 60px;
+        max-width: 100%;
+    }
+
+    .profile-section {
+        margin-bottom: 20px;
+    }
+
+    .profile-image-wrapper {
+        margin-bottom: 12px;
+    }
+
+    .profile-image {
+        width: 72px;
+        height: 72px;
+        border: 2px solid white;
+    }
+
+    .profile-name {
+        font-size: 18px;
+        margin-bottom: 6px;
+    }
+
+    .social-icons {
+        gap: 12px;
+        margin-bottom: 24px;
+    }
+
+    .social-icon {
+        width: 40px;
+        height: 40px;
+        font-size: 16px;
+    }
+
+    .links-section {
+        gap: 12px;
+    }
+
+    .link-button {
+        padding: 12px 14px;
+        border-radius: 10px;
+    }
+
+    .link-icon {
+        width: 32px;
+        height: 32px;
+        font-size: 16px;
+        margin-right: 12px;
+    }
+
+    .link-text {
+        font-size: 14px;
+        line-height: 1.4;
+    }
+
+    .link-arrow {
+        font-size: 14px;
+    }
+
+    /* Modal improvements for mobile */
+    .modal-content {
+        width: 95%;
+        margin: 20px auto;
+        padding: 20px;
+    }
+
+    .pdf-viewer-content {
+        width: 95%;
+        height: 70vh;
+    }
+
+    .close-button {
+        top: 12px;
+        right: 12px;
+        font-size: 24px;
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        padding: 16px 12px 50px;
+    }
+
+    .profile-image {
+        width: 64px;
+        height: 64px;
+    }
+
+    .profile-name {
+        font-size: 16px;
+    }
+
+    .social-icons {
+        gap: 10px;
+        margin-bottom: 20px;
+    }
+
+    .social-icon {
+        width: 36px;
+        height: 36px;
+        font-size: 14px;
+    }
+
+    .links-section {
+        gap: 10px;
+    }
+
+    .link-button {
+        padding: 10px 12px;
+        border-radius: 8px;
+    }
+
+    .link-icon {
+        width: 28px;
+        height: 28px;
+        font-size: 14px;
+        margin-right: 10px;
+    }
+
+    .link-text {
+        font-size: 13px;
+    }
+
+    .link-arrow {
+        font-size: 12px;
+    }
+
+    /* PDF modal improvements for small screens */
+    .pdf-list-container {
+        max-height: 300px;
+    }
+
+    .pdf-link {
+        padding: 10px 12px;
+        padding-left: 35px;
+        font-size: 14px;
+    }
+
+    .pdf-link::before {
+        left: 12px;
+        font-size: 16px;
+    }
+
+    .modal-content h2 {
+        font-size: 18px;
+        margin-bottom: 16px;
+    }
+
+    .modal-content p {
+        font-size: 13px;
+    }
+}
+
+/* Extra small devices */
+@media (max-width: 375px) {
+    .container {
+        padding: 12px 10px 40px;
+    }
+
+    .profile-image {
+        width: 56px;
+        height: 56px;
+    }
+
+    .profile-name {
+        font-size: 15px;
+    }
+
+    .social-icon {
+        width: 32px;
+        height: 32px;
+        font-size: 13px;
+    }
+
+    .link-button {
+        padding: 8px 10px;
+    }
+
+    .link-icon {
+        width: 24px;
+        height: 24px;
+        font-size: 12px;
+        margin-right: 8px;
+    }
+
+    .link-text {
+        font-size: 12px;
+    }
+}
+
+/* Touch-friendly improvements */
+@media (hover: none) and (pointer: coarse) {
+    .link-button:active {
+        transform: scale(0.98);
+    }
+
+    .social-icon:active {
+        transform: scale(0.95);
+    }
+
+    .link-button {
+        -webkit-tap-highlight-color: transparent;
+    }
+
+    .social-icon {
+        -webkit-tap-highlight-color: transparent;
+    }
+}

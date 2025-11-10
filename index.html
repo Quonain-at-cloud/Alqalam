@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Alqalam Flex and Printing Press</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <!-- Fallback CDN in case the first one fails -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.2/css/all.min.css"
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <!-- Confetti Container -->
+    <div class="confetti-container" id="confettiContainer"></div>
+
+    <!-- Main Container -->
+    <div class="container">
+      <!-- Profile Section -->
+      <div class="profile-section">
+        <div class="profile-image-wrapper">
+          <img
+            src="profile.jpeg"
+            alt="Profile Picture"
+            class="profile-image"
+            id="profileImage"
+          />
+        </div>
+        <h1 class="profile-name" id="profileName">
+          Alqalam flex and Printing press
+        </h1>
+      </div>
+
+      <!-- Social Media Icons -->
+      <div class="social-icons" id="socialIcons">
+        <a
+          href="https://facebook.com"
+          target="_blank"
+          class="social-icon facebook"
+          aria-label="Facebook"
+        >
+          <i class="fa-brands fa-facebook-f"></i>
+        </a>
+        <a
+          href="https://www.instagram.com/alqalamprintingagency?igsh=dnU0Z2s1d3c4bHZy"
+          target="_blank"
+          class="social-icon instagram"
+          aria-label="Instagram"
+        >
+          <i class="fa-brands fa-instagram"></i>
+        </a>
+        <a
+          href="https://www.tiktok.com/@alqalamprintingagency?_r=1&_t=ZS-91HvhqILS5q"
+          target="_blank"
+          class="social-icon tiktok"
+          aria-label="TikTok"
+        >
+          <i class="fa-brands fa-tiktok"></i>
+        </a>
+        <a
+          href="https://wa.me/923036901089"
+          target="_blank"
+          class="social-icon whatsapp"
+          aria-label="WhatsApp"
+        >
+          <i class="fa-brands fa-whatsapp"></i>
+        </a>
+      </div>
+
+      <!-- Links Section -->
+      <div class="links-section" id="linksSection">
+        <a href="#" class="link-button" data-link="pdf-link">
+          <div class="link-icon pdf-icon">
+            <i class="far fa-file-pdf"></i>
+          </div>
+          <span class="link-text">PDF</span>
+          <div class="link-arrow">
+            <i class="fas fa-chevron-right"></i>
+          </div>
+        </a>
+
+        <a href="#" class="link-button" data-link="rate-list">
+          <div class="link-icon list-icon">
+            <i class="fas fa-list"></i>
+          </div>
+          <span class="link-text">Rate List</span>
+          <div class="link-arrow">
+            <i class="fas fa-chevron-right"></i>
+          </div>
+        </a>
+
+        <a href="#" class="link-button" data-link="composing-card">
+          <div class="link-icon cdr-icon">
+            <i class="fas fa-file-image"></i>
+          </div>
+          <span class="link-text">Composing All Card 2025-26</span>
+          <div class="link-arrow">
+            <i class="fas fa-chevron-right"></i>
+          </div>
+        </a>
+
+        <a href="#" class="link-button" data-link="whatsapp-channel">
+          <div class="link-icon whatsapp-icon">
+            <i class="fab fa-whatsapp"></i>
+          </div>
+          <span class="link-text"
+            >Alqalam Wedding Cards | WhatsApp Channel</span
+          >
+          <div class="link-arrow">
+            <i class="fas fa-chevron-right"></i>
+          </div>
+        </a>
+      </div>
+
+      <!-- Footer -->
+      <div class="footer">
+        <div class="footer-logo"></div>
+      </div>
+    </div>
+
+    <!-- PDF List Modal -->
+    <div class="modal" id="pdfModal">
+      <div class="modal-content">
+        <span class="close-button" id="closePdfModal">&times;</span>
+        <h2>Available PDF Files</h2>
+        <div class="pdf-list-container">
+          <ul id="pdfFileList" class="pdf-list"></ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- PDF Viewer Modal -->
+    <div class="modal" id="pdfViewerModal">
+      <div class="modal-content pdf-viewer-content">
+        <span class="close-button" id="closePdfViewerModal">&times;</span>
+        <h2 id="pdfViewerTitle">PDF Viewer</h2>
+        <div class="pdf-viewer-container">
+          <iframe id="pdfViewer" class="pdf-viewer" frameborder="0"></iframe>
+        </div>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
